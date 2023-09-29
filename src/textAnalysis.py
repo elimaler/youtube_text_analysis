@@ -21,9 +21,8 @@ def searchKwd(channel_id, kwd, data_location = "./", window=100, save=False):
     corpus_text = []
     corpus_times = []
     corpus_titles = []
-
+    output = [["keyword", "channel_id", "video_id", "video_title", "time_code", "link", "text"]]
     if save:
-        output = [["keyword", "channel_id", "video_id", "video_title", "time_code", "link", "text"]]
         if not os.path.exists(data_location + "youtube_analysis_data/searchResults/"):
             os.mkdir(data_location + "youtube_analysis_data/searchResults/")
         file = open(data_location + f"youtube_analysis_data/searchResults/{kwd}_{channel_id}.txt", "w")

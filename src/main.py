@@ -21,9 +21,10 @@ def search(args):
     data_location = args.data_location
     channel_id = args.channel_id
     keyword = args.keyword
+    save = args.save
     window_size = args.window_size
     # Your search logic here
-    textAnalysis.searchKwd(channel_id, keyword, data_location, window_size)
+    textAnalysis.searchKwd(channel_id, keyword, data_location, window_size, save)
 
 def main():
     # Create an ArgumentParser object
@@ -39,7 +40,6 @@ def main():
     download_parser = subparsers.add_parser("download", help="Download videos")
     download_parser.add_argument("url", type=str, help="URL of homepage of channel to download")
     download_parser.add_argument("--skip_existing", action="store_false", default=True, help="Skip existing downloaded videos")
-
     # Subparser for the -update command
     update_parser = subparsers.add_parser("update", help="Update videos")
     update_parser.add_argument("--skip_existing", action="store_false", default=True, help="Skip exostomg downloaded videos")
@@ -49,6 +49,7 @@ def main():
     search_parser.add_argument("keyword", type=str, help="Keyword to search for")
     search_parser.add_argument("--channel_id", type=str, default=None, help="Channel ID (leave blank for all channels)")
     search_parser.add_argument("--window_size", type=int, default=100, help="Window size (default: 100)")
+    search_parser.add_argument("--save", action="store_true", default=False, help="Save to a .txt file instead of printing to console.")
 
     # Parse the command-line arguments
     args = parser.parse_args()

@@ -1,4 +1,4 @@
-# youtube_analysis
+# youtube_text_analysis
 A repo for analysis the content of youtube channels transcriptions.
 
 This repo is for the analysis of youtube channel transcriptions. It works to download all transcriptions from a channel and then allows the user to keyword search. Data is stored locally.
